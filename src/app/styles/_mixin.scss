@@ -1,0 +1,86 @@
+@mixin pc-text-h1 {
+  font: var(--mat-sys-headline-large);
+  letter-spacing: var(--mat-sys-headline-large-tracking);
+  color: var(--mat-sys-on-secondary-fixed);  
+}
+
+@mixin pc-menu-text {
+  font: var(--mat-sys-headline-small);
+  letter-spacing: var(--mat-sys-headline-small-tracking);
+  color: var(--mat-sys-on-secondary-fixed-variant);
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover{
+    color: var(--mat-sys-on-secondary-fixed);
+  }
+}
+
+@mixin heading-text-1 {
+  font: var(--mat-custom-title-large);
+  letter-spacing: var(--mat-sys-headline-large-tracking);
+  color: var(--mat-sys-on-secondary-fixed-variant)
+}
+
+@mixin heading-text-2($color: var(--mat-sys-on-secondary-fixed-variant)) {
+  font: var(--mat-cus-display-large);
+  letter-spacing: var(--mat-cus-display-large-tracking);
+  color: $color;
+}
+
+
+@mixin heading-text-3 {
+  font: var(--mat-sys-display-large);
+  letter-spacing: var(--mat-sys-display-large-tracking);
+  color: var(--mat-sys-on-secondary-fixed-variant)
+}
+
+@mixin heading-text-4 {
+  font: var(--mat-sys-headline-medium);
+  letter-spacing: var(--mat-sys-headline-medium-tracking);
+  color: var(--mat-sys-on-secondary-fixed-varian);
+}
+
+@mixin description-text-1($color: var(--mat-sys-on-secondary-fixed-variant)) {
+  font: var(--mat-sys-headline-small);
+  letter-spacing: var(--mat-sys-headline-small-tracking);
+  color: $color;
+}
+
+@mixin primiary-button {
+  padding: var(--mat-custom-button-padding-y) var(--mat-custom-button-padding-x);
+}
+
+@mixin accent-text-1 {
+  font: var(--mat-sys-headline-medium);
+  letter-spacing: var(--mat-sys-headline-medium-tracking);
+  color: var(--mat-sys-accent);
+}
+
+@mixin accent-pill-bg {
+  background-color: var(--mat-sys-accent);
+  border-radius: 100px;
+  color: white;
+}
+
+// Album specific mixins
+@mixin album-card-shadow {
+  box-shadow: var(--mat-sys-level2);
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: var(--mat-sys-level3);
+  }
+}
+
+@mixin album-card-border {
+  border-radius: 3.125rem; // 50px converted to rem
+  overflow: hidden;
+}
+
+@mixin album-grid-layout($columns: 3) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}

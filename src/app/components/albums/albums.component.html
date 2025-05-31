@@ -1,0 +1,107 @@
+<!-- Header with create button -->
+<div class="albums-header">
+  <div class="heading-3">My Albums</div>
+  <button class="cta-btn" mat-flat-button (click)="openCreateAlbumDialog()">
+    <mat-icon>add</mat-icon>
+    Create Album
+  </button>
+</div>
+
+<!-- Albums grid -->
+<div class="albums-grid">
+  @for (album of albums(); track album.id) {
+    <mat-card class="album-card" [class.selected]="isSelected(album)">
+      <!-- Selection checkbox -->
+      <div class="selection-overlay" *ngIf="isSelectionMode">
+        <mat-checkbox 
+          [checked]="isSelected(album)"
+          (change)="toggleSelection(album)"
+          color="primary">
+        </mat-checkbox>
+      </div>
+
+      <!-- Album content -->
+      <mat-card-header>
+        <mat-card-title>{{ album.name }}</mat-card-title>
+        <mat-card-subtitle>{{ album.imageCount }} photos</mat-card-subtitle>
+      </mat-card-header>
+
+      <!-- Album cover image -->
+      <img mat-card-image [src]="album.coverImage" [alt]="album.name" (click)="openAlbum(album)">
+
+      <!-- Album actions -->
+      <mat-card-actions align="end">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Album actions">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openAlbum(album)">
+            <mat-icon>photo_library</mat-icon>
+            <span>Open</span>
+          </button>
+          <button mat-menu-item (click)="editAlbum(album)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+          <button mat-menu-item (click)="deleteAlbum(album)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+      </mat-card-actions>
+    </mat-card>
+  } @empty {
+    <div class="no-albums">
+      <mat-icon>photo_library</mat-icon>
+      <p>No albums yet. Create your first album!</p>
+    </div>
+  }
+</div>
+
+<!-- Create Album Dialog Template -->
+<ng-template #createAlbumDialog>
+  <h2 mat-dialog-title>Create New Album</h2>
+  <mat-dialog-content>
+    <form [formGroup]="albumForm" class="album-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Album Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="albumForm.get('name')?.hasError('required')">
+          Album name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" rows="3"></textarea>
+      </mat-form-field>
+
+      <div class="cover-upload">
+        <label>Cover Image</label>
+        <button mat-stroked-button (click)="uploadCover()">
+          <mat-icon>cloud_upload</mat-icon>
+          Upload Cover
+        </button>
+        <img *ngIf="coverPreview" [src]="coverPreview" alt="Cover preview">
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="cta-btn" mat-button mat-dialog-close>Cancel</button>
+    <button class="cta-btn" mat-flat-button [disabled]="!albumForm.valid" (click)="saveAlbum()" [mat-dialog-close]="true">
+      Create
+    </button>
+  </mat-dialog-actions>
+</ng-template>
+
+<!-- Bulk delete confirmation dialog -->
+<ng-template #deleteConfirmDialog>
+  <h2 mat-dialog-title>Delete Albums</h2>
+  <mat-dialog-content>
+    Are you sure you want to delete {{ selectedAlbums.length }} album(s)?
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button class="cta-btn" mat-button mat-dialog-close>Cancel</button>
+    <button class="cta-btn" mat-flat-button (click)="confirmDelete()" [mat-dialog-close]="true">Delete</button>
+  </mat-dialog-actions>
+</ng-template>

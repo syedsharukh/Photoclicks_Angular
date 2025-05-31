@@ -1,0 +1,127 @@
+<div class="container">
+  <div class="section">
+    <div class="intro-content">
+      <div class="intro-text">
+        <span class="intro-heading">{{ introHeading }}</span>
+        <p class="description">{{ introDescription }}</p>
+        <button class="cta-btn" mat-flat-button>
+          {{ introButtonLabel }} >
+        </button>
+      </div>
+      <div class="intro-image-grid">
+        <div class="photo-grid">
+          <div
+            *ngFor="let image of images"
+            class="photo-cell"
+            [style.gridColumn]="image.col"
+            [style.gridRow]="image.row"
+          >
+            <img
+              [src]="image.src"
+              [alt]="image.alt"
+              [style.width.px]="image.width"
+              [style.height.px]="image.height"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-section">
+    <div class="portfolio-image">
+      <img
+        style="border-radius: 20px"
+        [src]="portfolio.src"
+        [alt]="portfolio.alt"
+        [style.width.px]="portfolio.width"
+        [style.height.px]="portfolio.height"
+      />
+    </div>
+    <div class="portfolio-content">
+      <div class="portfolio-text">
+        <div class="accent-heading">
+          {{ portfolioHighlightedText }}
+        </div>
+        <span class="heading-3">{{ portfolioHeading }}</span>
+        <p class="description">{{ portfolioDescription }}</p>
+        <button class="cta-btn" mat-flat-button>
+          {{ portfolioButtonLabel }} >
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="expertise-section">
+    <div class="heading-3">{{ expertiseHeading }}</div>
+    <div class="expertise-container">
+      <div class="expertise-card" *ngFor="let card of expertiseCards">
+        <img
+          [src]="card.src"
+          [alt]="card.heading"
+          [width]="card.width"
+          [height]="card.height"
+        />
+        <h3 class="ex-card-heading-4">{{ card.heading }}</h3>
+        <p class="description">{{ card.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="creativity-section">
+    <div class="creativity-image">
+      <img
+        style="border-radius: 20px"
+        [src]="creativityImage.src"
+        [style.width.px]="creativityImage.width"
+        [style.height.px]="creativityImage.height"
+      />
+    </div>
+    <div class="creativity-content">
+      <div class="heading-3">{{ creativityHeading }}</div>
+      <p class="description">{{ creativityDescription }}</p>
+      <div class="creativity-card-container">
+        <div class="creativity-card" *ngFor="let card of creativityCards">
+          <div class="heading-3">{{ card.number }}</div>
+          <div class="description">{{ card.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="gallery-content">
+      <div class="heading-2">Journey Through Our Gallery</div>
+      <p class="description">
+        Immerse yourself in the captivating world of photography.
+      </p>
+    </div>
+    <div class="gallery-image-grid">
+      <div class="gallery-grid">
+        <div
+          *ngFor="let image of gallery"
+          class="photo-cell"
+          [style.gridColumn]="image.col"
+          [style.gridRow]="image.row"
+        >
+          <img
+            [src]="image.src"
+            [alt]="image.alt"
+            [style.width.px]="image.width"
+            [style.height.px]="image.height"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-section">
+    <div class="pill-card">
+      <div class="r-heading-2">Step Into Our World</div>
+      <p class="r-description">
+        Explore our studio like never before with our cutting-edge 3D
+        visualization. Take a virtual tour and experience the ambiance,
+        creativity, and attention to detail that define Capture Studio.
+      </p>
+      <div class="inverse-theme">
+        <button mat-flat-button class="cta-btn"><span>Explore Our Studio</span><mat-icon fontIcon="arrow_circle_right"></mat-icon></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+@use "./styles/mixin" as *;
+h1 {
+    @include pc-text-h1;
+}
+.menu-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .pc-toolbar-menu {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .pc-menu-item {
+        @include pc-menu-text;
+        text-decoration: none;
+
+        &.active {
+            color: var(--mat-sys-on-secondary-fixed);
+            font-weight: 500;
+        }
+    }
+}
+
+.main-content {
+    padding-left: var(--mat-custom-padding);
+    padding-right: var(--mat-custom-padding);
+}

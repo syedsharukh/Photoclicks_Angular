@@ -1,0 +1,12 @@
+<mat-toolbar class="menu-toolbar">
+  <div class="brand">Photoclicks</div>
+  <div class="pc-toolbar-menu">
+      <a mat-button class="pc-menu-item" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a mat-button class="pc-menu-item" routerLink="/albums" routerLinkActive="active">Albums</a>
+      <a mat-button class="pc-menu-item">About Us</a>
+      <a mat-button class="pc-menu-item">Portfolio</a>
+  </div>
+</mat-toolbar>
+<div class="main-content">
+  <router-outlet />
+</div>

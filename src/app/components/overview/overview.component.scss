@@ -1,0 +1,167 @@
+@use '../../styles/mixin.scss' as *;
+
+.container {
+  display: flex;        
+  flex-direction: column;
+  gap: 3.75rem;
+  padding-top: 3.75rem;          
+}
+
+.photo-grid {
+  display: grid;
+  width: 680px;
+  grid-template-columns: repeat(3, 1fr); /* 4 columns */
+  grid-auto-rows: 90px; /* row height */
+  gap: 1rem;
+}
+
+.photo-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 60px;
+}
+
+.section {
+  padding: 4rem 2rem;
+}
+
+.intro-content {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.intro-text {
+  flex: 1 1 30%;
+}
+
+.intro-image-grid {
+  flex: 1 1 40%;
+}
+
+.cta-btn {
+    @include primiary-button;
+}
+.intro-heading {
+    @include heading-text-1;
+}
+
+.description {
+    @include description-text-1;
+}
+
+.portfolio-section{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 4rem 2rem;
+}
+.portfolio-image {
+    flex: 1 1 30%;
+}
+
+.portfolio-content{
+    flex: 1 1 40%;
+}
+
+.heading-2 {
+  @include heading-text-2;
+}
+
+.heading-3{
+    @include heading-text-3;
+}
+
+.accent-heading {
+    @include accent-text-1
+}
+
+.expertise-section {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.expertise-container {
+  display: flex;
+  gap: 7rem; /* space between cards */
+  justify-content: center;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.expertise-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 16.6875rem;
+  text-align: center;
+}
+
+.expertise-card img {
+  margin-bottom: 4rem;
+}
+
+.ex-card-heading-4 {
+    @include heading-text-4;
+    margin-bottom: 0;
+    line-height: 0.6;
+}
+
+.creativity-section {
+   padding: 3rem 1.5rem;
+   display: flex;
+   flex-direction: row;
+   gap: 4rem;
+}
+
+.creativity-content p {
+  margin-bottom: 8rem;
+}
+
+.creativity-card-container{
+    display: flex;
+    gap: 5.7rem; /* space between cards */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery-grid {
+  display: grid;
+  width: 1360px;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-auto-rows: 90px; /* each row = 90px */
+  gap: 1rem;
+}
+
+.final-section {
+  padding: 3rem 1.5rem;
+  margin-top: 250px;
+}
+
+.pill-card {
+  @include accent-pill-bg;
+  width: 1380px;
+  height: 600px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px; 
+
+}
+
+.r-heading-2 {
+  @include heading-text-2("#ffff");
+}
+
+.r-description{
+  @include description-text-1("#ffff");
+}

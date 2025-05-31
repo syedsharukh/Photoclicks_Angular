@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@import "./app/themes/basetheme.css";
+
+html, body { height: 100%; box-sizing: border-box; }
+body { 
+    margin: 0;
+    background: var(--mat-sys-primary-fixed);
+    overflow: auto;
+    @include mat.toolbar-overrides((
+        container-background-color: var(--mat-sys-primary-fixed),
+        container-text-color: var(--mat-sys-on-primary-fixed)
+    ));
+
+    @include mat.button-overrides((
+        // protected-label-text-color: var(--mat-sys-on-accent),
+        // protected-container-color: var(--mat-sys-accent),
+        filled-container-color: var(--mat-sys-accent)
+    ));
+
+    .inverse-theme {
+        @include mat.button-overrides((
+            filled-container-color: white,
+            filled-label-text-color: var(--mat-sys-on-secondary-fixed-variant)
+        ));
+    }
+}
+
+
